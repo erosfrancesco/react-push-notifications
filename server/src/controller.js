@@ -1,11 +1,7 @@
-const crypto = require("crypto");
 const webpush = require("web-push");
-
 const db = require('./db.js');
 
-// VAPID KEYS
-// webpush.generateVAPIDKeys(); // if ever needed
-
+//
 const vapidKeys = {
 	publicKey: process.env.VAPID_PUBLIC,
 	privateKey: process.env.VAPID_PRIVATE

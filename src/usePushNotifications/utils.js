@@ -1,5 +1,5 @@
 const pushServerPublicKey = process.env.REACT_APP_NOTIFICATIONS_KEY;
-// 'BDCMxocFz0Vc2hXOQ7gJXiPaeQQPlqwNG_mczwGd4TjgRvlNGCKdFVDiCrLcOfcV5_oQBAqszkCmxdTmoD4Uyu4';
+
 /**
  * checks if Push notification and service workers are supported by your browser
  */
@@ -39,7 +39,7 @@ export function sendNotification() {
  *
  */
 export function registerServiceWorker() {
-    return navigator.serviceWorker.register("/pushSW.js");
+    return navigator.serviceWorker.register("/sw-notifications.js");
 }
 
 /**

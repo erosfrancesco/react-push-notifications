@@ -12,16 +12,14 @@ function createHash(input) {
 
 //
 const save = (topic, subscriptionRequest) => {
-    console.log('Subscribing', Object.keys(subscriptionRequest)[0]);
-
     const { endpoint, keys } = JSON.parse(Object.keys(subscriptionRequest)[0]);
     /**
         {
-            "endpoint":"https://fcm.googleapis.com/fcm/send/cFNrQHor9p8:APA91bFrSd6qZY8eJ7wkBcQ2uPx379aeLynKWZGQFfF6LHbgvWHH6lLcpPt6dOWn6td7QVYLf12OK_UggQ4LiGNVwo0UpGBBMoHh2nb_LE2DmlNtH7TrCqmjjlbkNzUJIuE8VZgJfOyl",
+            "endpoint":"...",
             "expirationTime":null,
             "keys":{
-                "p256dh":"BBWA_7hpfs4adTADA-1RSKBUWpOLnaNmBcRbX2t6BAeqaMcgLtGYBolWxg4cTU4IgAVeF8Xlmsny8i949tMs3RM",
-                "auth":"ercAzTPOgQjOXRVlaeqZIA"
+                "p256dh":"...",
+                "auth":"..."
             }
         }
      */
