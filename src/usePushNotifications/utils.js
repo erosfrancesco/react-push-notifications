@@ -1,5 +1,3 @@
-const pushServerPublicKey = process.env.REACT_APP_NOTIFICATIONS_KEY;
-
 /**
  * checks if Push notification and service workers are supported by your browser
  */
@@ -40,48 +38,4 @@ export function sendNotification() {
  */
 export function registerServiceWorker() {
     return navigator.serviceWorker.register("/sw-notifications.js");
-}
-
-/**
- * using the registered service worker 
- * creates a push notification subscription and returns it
- */
-export async function createNotificationSubscription() {
-    // wait for service worker installation to be ready
-    const serviceWorker = await navigator.serviceWorker.ready;
-    
-    /*
-    // Could be that the keys are not used by this subscription server.
-    // In that case, simply unsubscribe
-    return serviceWorker.pushManager.getSubscription().then((subscription) => {
-        subscription.unsubscribe()
-        .then((successful) => {
-            console.log(successful)
-          // You've successfully unsubscribed
-        }).catch((e) => {
-          // Unsubscribing failed
-        })
-    })
-    /** */
-
-    /** */
-    return await serviceWorker.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: pushServerPublicKey
-    });
-    /** */
-}
-
-/**
- * returns the subscription if present or nothing
- */
-export function getUserSubscription() {
-    //wait for service worker installation to be ready, and then
-    return navigator.serviceWorker.ready
-        .then(function(serviceWorker) {
-            return serviceWorker.pushManager.getSubscription();
-        })
-        .then(function(pushSubscription) {
-            return pushSubscription;
-        });
 }

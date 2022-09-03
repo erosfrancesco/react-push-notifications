@@ -5,23 +5,17 @@ const port = process.env.PORT || 8080;
 const host = process.env.HOSTNAME || "0.0.0.0";
 
 // Launch Node.js server
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.log(`Server is listening on http://${host}:${port}/`);
 });
 
+// Exit
 function handleExit(err) {
 	if (err) {
 		console.error(err);
-		// errors.report(err);
 	}
 
 	process.exit();
-
-	/*
-	if (options.exit) {
-		process.exit();
-	}
-	/** */
 }
 
 process.on("exit", handleExit.bind(null));

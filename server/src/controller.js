@@ -46,6 +46,7 @@ function sendPushNotification(req, res) {
 	const promises = [];
 
 	subscriptions.forEach((sub) => {
+		// console.log('Hello sub', sub, subscriptions) // test
 		const promise = sendNotification(sub, message);
 		promises.push(promise)
 	});

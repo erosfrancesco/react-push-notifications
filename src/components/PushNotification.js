@@ -29,7 +29,8 @@ export default function PushNotification() {
         onClickAskUserPermission,
         onClickSubscribeToPushNotification,
         onClickSendSubscriptionToPushServer,
-        onClickSendNotification
+        onClickSendNotification,
+        onClickUnsubscribe
     } = usePushNotifications();
 
     const isConsentGranted = userConsent === "granted";
@@ -47,24 +48,29 @@ export default function PushNotification() {
             {/** Actions */}
             <section>
                 <div className="actions">
-                    <button disabled={arePermissionsAsked} 
+                    <button disabled={loading || arePermissionsAsked} 
                             onClick={onClickAskUserPermission}>
                         {consentLabel}
                     </button>
 
-                    <button disabled={isUserSubscribed} 
+                    <button disabled={loading || isUserSubscribed} 
                             onClick={onClickSubscribeToPushNotification}>
                         {subscriptionLabel}
                     </button>
 
-                    <button disabled={!userSubscription || pushServerSubscriptionId} 
+                    <button disabled={loading || !userSubscription || pushServerSubscriptionId} 
                             onClick={onClickSendSubscriptionToPushServer}>
                         {approveLabel}
                     </button>
 
-                    <button disabled={!pushServerSubscriptionId} 
+                    <button disabled={loading || !pushServerSubscriptionId} 
                             onClick={onClickSendNotification}>
                         Send a notification
+                    </button>
+
+                    <button disabled={loading || !isUserSubscribed} 
+                            onClick={onClickUnsubscribe}>
+                        Unsubscribe
                     </button>
                 </div>
             </section>
