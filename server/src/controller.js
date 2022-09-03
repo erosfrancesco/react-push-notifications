@@ -26,9 +26,7 @@ const sendNotification = (pushSubscription, message) => {
 			image,
 			url
 		})
-  	).catch(err => {
-		console.error(err);
-	});
+  	)
 }
 //
 
@@ -51,9 +49,15 @@ function sendPushNotification(req, res) {
 		const promise = sendNotification(sub, message);
 		promises.push(promise)
 	});
-	Promise.all(promises).catch(console.error); // error managements
-
-  	res.status(202).json({});
+	Promise.all(promises)
+	.then(() => {
+		res.status(202).json({})
+	})
+	.catch(error => {
+		console.error(error);
+		const { statusCode } = error;
+		res.status(statusCode || 500).json({});
+	});
 }
 
 module.exports = { handlePushNotificationSubscription, sendPushNotification };

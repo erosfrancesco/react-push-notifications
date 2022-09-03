@@ -116,19 +116,6 @@ export default function usePushNotifications() {
 			setLoading(false);
 			setError(err);
 		});
-
-		/*
-		http
-		.post("/subscription", userSubscription)
-		.then(function(response) {
-			setPushServerSubscriptionId(response.id);
-			setLoading(false);
-		})
-		.catch(err => {
-			setLoading(false);
-			setError(err);
-		});
-		/** */
 	};
 
 	/**
@@ -148,6 +135,7 @@ export default function usePushNotifications() {
 		sendNotificationTo(topic, content)
 			.then(() => setLoading(false))
 			.catch(err => {
+				console.log('Sent notification: ', err);
 				setLoading(false);
 				setError(err);
 			});

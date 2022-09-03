@@ -78,21 +78,6 @@ export default function PushNotification() {
                     <Error error={error} />
                 </div>
             </section>
-            
-            {/** Notification info 
-            <section>
-                <div className="info">
-                    <p>Your notification subscription details</p>
-                    <pre>
-                        <code>
-                            {
-                                JSON.stringify(userSubscription, null, " ")
-                            }
-                        </code>
-                    </pre>
-                </div>
-            </section>
-            {/** */}
         </main>
     );
 }
